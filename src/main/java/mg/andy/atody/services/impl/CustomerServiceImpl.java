@@ -1,6 +1,7 @@
 package mg.andy.atody.services.impl;
 
 import mg.andy.atody.mappers.CustomerMapper;
+import mg.andy.atody.models.Customer;
 import mg.andy.atody.presentation.CustomerDto;
 import mg.andy.atody.repositories.CustomerRepository;
 import mg.andy.atody.services.CustomerService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -30,5 +32,10 @@ public class CustomerServiceImpl implements CustomerService {
                 .stream()
                 .map(customerMapper::toDto)
                 .toList();
+    }
+
+    @Override
+    public Optional<Customer> getById(Long id) {
+        return customerRepository.findById(id);
     }
 }

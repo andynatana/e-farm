@@ -3,7 +3,10 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
-    <include file="db/changelog/12/insert-changelog.xml"/>
-    <include file="db/changelog/12/drop-column-changelog.xml"/>
-    <include file="db/changelog/12/drop-table-changelog.xml"/>
+
+    <changeSet id="1733212446442-1" author="arabearimanana">
+        <dropColumn tableName="orders">
+            <column name="total_price"/>
+        </dropColumn>
+    </changeSet>
 </databaseChangeLog>

@@ -31,4 +31,13 @@ public class OrderRequest {
     public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
+
+    @Override
+    public String toString() {
+        return "OrderRequest{" +
+               "customerId=" + customerId +
+               ", quantity=" + quantity +
+               ", unitPrice=" + unitPrice +
+               '}';
+    }
 }
