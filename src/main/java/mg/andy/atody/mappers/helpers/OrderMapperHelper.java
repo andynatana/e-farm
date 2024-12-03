@@ -1,7 +1,7 @@
 package mg.andy.atody.mappers.helpers;
 
 import mg.andy.atody.models.Customer;
-import mg.andy.atody.services.CustomerService;
+import mg.andy.atody.services.customers.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

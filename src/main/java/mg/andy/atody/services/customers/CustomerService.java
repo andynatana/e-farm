@@ -1,4 +1,4 @@
-package mg.andy.atody.services;
+package mg.andy.atody.services.customers;
 
 import mg.andy.atody.models.Customer;
 import mg.andy.atody.presentation.CustomerDto;

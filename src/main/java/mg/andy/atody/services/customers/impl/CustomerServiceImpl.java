@@ -1,10 +1,10 @@
-package mg.andy.atody.services.impl;
+package mg.andy.atody.services.customers.impl;
 
 import mg.andy.atody.mappers.CustomerMapper;
 import mg.andy.atody.models.Customer;
 import mg.andy.atody.presentation.CustomerDto;
 import mg.andy.atody.repositories.CustomerRepository;
-import mg.andy.atody.services.CustomerService;
+import mg.andy.atody.services.customers.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

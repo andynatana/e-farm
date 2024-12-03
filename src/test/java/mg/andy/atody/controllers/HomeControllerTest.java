@@ -1,6 +1,6 @@
 package mg.andy.atody.controllers;
 
-import mg.andy.atody.services.CustomerService;
+import mg.andy.atody.services.customers.CustomerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
