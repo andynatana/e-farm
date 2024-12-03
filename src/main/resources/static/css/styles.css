@@ -1,0 +1,10 @@
+:root {
+    --bs-light: #f8f9fa; /* Default light color */
+}
+
+.box {
+    box-shadow: lightgrey 1px 1px 5px 1px;
+}
+.default-padding {
+    padding: 2.5%;
+}

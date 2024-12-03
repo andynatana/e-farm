@@ -10,6 +10,6 @@ spring:
     hibernate:
       ddl-auto: update
     database: postgresql
-    show-sql: true
+    show-sql: false
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.xml
