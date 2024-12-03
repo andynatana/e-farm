@@ -12,6 +12,7 @@
     .box {
         box-shadow: lightgrey 1px 1px 5px 1px;
     }
+
     .default-padding {
         padding: 2.5%;
     }
@@ -20,7 +21,8 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary box">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Varotra atody</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -35,22 +37,24 @@
             </div>
         </div>
     </nav>
-    <form action="./transactions.html" method="post" class="container mt-4 box default-padding">
+    <form action="./transactions.html" th:object="${orderRequest}" method="post"
+          class="container mt-4 box default-padding">
         <div class="row g-3">
             <div class="col-md-3">
                 <label for="customers" class="form-label">Clients</label>
-                <select class="form-control" name="customers" id="customers">
-                    <option value="1">Rabetsy</option>
-                    <option value="2">Mirana</option>
+                <select class="form-control" th:field="*{customerId}" name="customers" id="customers">
+                    <option th:each="customer : ${customers}" th:value="${customer.id()}"
+                            th:text="${customer.fullName()}">Rabetsy
+                    </option>
                 </select>
             </div>
             <div class="col-md-3">
                 <label for="quantity" class="form-label">Quantité</label>
-                <input type="number" name="quantity" id="quantity" class="form-control" />
+                <input type="number" th:field="*{quantity}" name="quantity" id="quantity" class="form-control"/>
             </div>
             <div class="col-md-3">
                 <label for="unit-price" class="form-label">Prix unitaire</label>
-                <input type="number" name="unit-price" class="form-control" id="unit-price" />
+                <input type="number" th:field="*{unitPrice}" name="unit-price" class="form-control" id="unit-price"/>
             </div>
             <div class="col-md-3 d-flex align-items-end">
                 <button type="submit" class="btn btn-outline-primary w-100">VALIDER</button>
