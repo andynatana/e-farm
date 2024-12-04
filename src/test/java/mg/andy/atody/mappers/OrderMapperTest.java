@@ -1,7 +1,7 @@
 package mg.andy.atody.mappers;
 
 import mg.andy.atody.models.Order;
-import mg.andy.atody.presentation.OrderRequest;
+import mg.andy.atody.presentation.request.OrderRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

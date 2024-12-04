@@ -11,7 +11,7 @@
 <body>
 <div class="container">
 
-    <div th:insert="fragments/navbar :: navbar"></div>
+    <div th:insert="~{fragments/navbar :: navbar}"></div>
 
     <form th:action="@{/orders}" th:object="${orderRequest}" method="post"
           class="container mt-4 box default-padding">

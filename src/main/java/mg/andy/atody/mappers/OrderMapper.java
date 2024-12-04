@@ -3,7 +3,7 @@ package mg.andy.atody.mappers;
 import mg.andy.atody.mappers.helpers.OrderMapperHelper;
 import mg.andy.atody.models.Order;
 import mg.andy.atody.presentation.OrderDto;
-import mg.andy.atody.presentation.OrderRequest;
+import mg.andy.atody.presentation.request.OrderRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

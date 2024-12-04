@@ -1,6 +1,6 @@
 package mg.andy.atody.controllers;
 
-import mg.andy.atody.presentation.OrderRequest;
+import mg.andy.atody.presentation.request.OrderRequest;
 import mg.andy.atody.services.customers.CustomerService;
 import mg.andy.atody.services.orders.OrderBoardService;
 import mg.andy.atody.services.orders.OrderService;

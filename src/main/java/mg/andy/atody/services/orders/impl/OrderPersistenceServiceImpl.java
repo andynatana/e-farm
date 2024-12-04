@@ -2,7 +2,7 @@ package mg.andy.atody.services.orders.impl;
 
 import mg.andy.atody.mappers.OrderMapper;
 import mg.andy.atody.models.Order;
-import mg.andy.atody.presentation.OrderRequest;
+import mg.andy.atody.presentation.request.OrderRequest;
 import mg.andy.atody.repositories.OrderRepository;
 import mg.andy.atody.services.orders.OrderPersistenceService;
 import org.slf4j.Logger;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderPersistenceServiceImpl implements OrderPersistenceService {
 
-    private static final Logger log = LoggerFactory.getLogger(OrderServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(OrderPersistenceServiceImpl.class);
 
     private OrderRepository orderRepository;
     private OrderMapper orderMapper;

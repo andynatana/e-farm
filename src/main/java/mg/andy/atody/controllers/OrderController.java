@@ -1,6 +1,6 @@
 package mg.andy.atody.controllers;
 
-import mg.andy.atody.presentation.OrderRequest;
+import mg.andy.atody.presentation.request.OrderRequest;
 import mg.andy.atody.services.customers.CustomerService;
 import mg.andy.atody.services.orders.OrderPersistenceService;
 import mg.andy.atody.services.orders.OrderService;
@@ -17,8 +17,6 @@ public class OrderController {
 
     private static final Logger log = LoggerFactory.getLogger(OrderController.class);
 
-    private OrderService orderService;
-    private CustomerService customerService;
     private OrderPersistenceService orderPersistenceService;
 
     public OrderController() {
@@ -26,8 +24,6 @@ public class OrderController {
 
     @Autowired
     public OrderController(OrderService orderService, CustomerService customerService, OrderPersistenceService orderPersistenceService) {
-        this.orderService = orderService;
-        this.customerService = customerService;
         this.orderPersistenceService = orderPersistenceService;
     }
 

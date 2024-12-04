@@ -1,4 +1,4 @@
-package mg.andy.atody.presentation;
+package mg.andy.atody.presentation.request;
 
 import java.math.BigDecimal;
 
