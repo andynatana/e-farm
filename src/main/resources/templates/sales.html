@@ -58,30 +58,32 @@
                 </div>
             </div>
         </div>
-        <table class="table table-striped">
-            <thead class="table-header">
-            <tr>
-                <th>Id</th>
-                <th>Clients</th>
-                <th>Quantité</th>
-                <th>Prix unitaire</th>
-                <th>Montant Total</th>
-                <th>Statut</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="orderItem : ${orderList}">
-                <td th:text="${orderItem.orderId()}">1</td>
-                <td th:text="${orderItem.customerFullName()}">Rabetsy</td>
-                <td th:text="${orderItem.quantity()}">50</td>
-                <td th:text="${orderItem.unitPrice()}">650</td>
-                <td th:text="${orderItem.amount()}">75000 Ar</td>
-                <td th:text="${orderItem.orderStatus()}">Livré</td>
-                <td><a th:href="@{/orders/{orderId}/remove(orderId=${orderItem.orderId})}">DELETE</a> </td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="table-header">
+                <tr>
+                    <th>Id</th>
+                    <th>Clients</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Montant Total</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="orderItem : ${orderList}">
+                    <td th:text="${orderItem.orderId()}">1</td>
+                    <td th:text="${orderItem.customerFullName()}">Rabetsy</td>
+                    <td th:text="${orderItem.quantity()}">50</td>
+                    <td th:text="${orderItem.unitPrice()}">650</td>
+                    <td th:text="${orderItem.amount()}">75000 Ar</td>
+                    <td th:text="${orderItem.orderStatus()}">Livré</td>
+                    <td><a th:href="@{/orders/{orderId}/remove(orderId=${orderItem.orderId})}">DELETE</a> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

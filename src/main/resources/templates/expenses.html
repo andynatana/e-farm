@@ -54,28 +54,30 @@
             </div>
         </div>
         <div class="row g-3">
-            <table class="table table-striped">
-                <thead class="table-header">
-                <tr>
-                    <th>Id</th>
-                    <th>Designation</th>
-                    <th>Quantité</th>
-                    <th>Prix unitaire</th>
-                    <th>Montant Total</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="expenseItem : ${expenseList}">
-                    <td th:text="${expenseItem.id()}">1</td>
-                    <td th:text="${expenseItem.designation()}">Rabetsy</td>
-                    <td th:text="${expenseItem.quantity()}">50</td>
-                    <td th:text="${expenseItem.unitPrice()}">650</td>
-                    <td th:text="${expenseItem.totalPrice()}">Livré</td>
-                    <td><a th:href="@{/expenses/{expenseId}/remove(expenseId=${expenseItem.id()})}">DELETE</a> </td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-header">
+                    <tr>
+                        <th>Id</th>
+                        <th>Designation</th>
+                        <th>Quantité</th>
+                        <th>Prix unitaire</th>
+                        <th>Montant Total</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="expenseItem : ${expenseList}">
+                        <td th:text="${expenseItem.id()}">1</td>
+                        <td th:text="${expenseItem.designation()}">Rabetsy</td>
+                        <td th:text="${expenseItem.quantity()}">50</td>
+                        <td th:text="${expenseItem.unitPrice()}">650</td>
+                        <td th:text="${expenseItem.totalPrice()}">Livré</td>
+                        <td><a th:href="@{/expenses/{expenseId}/remove(expenseId=${expenseItem.id()})}">DELETE</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </form>
 
