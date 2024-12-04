@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!--Customer table-->
+    <changeSet id="1733294268168-1" author="arabearimanana">
+        <createTable tableName="customers" ifNotExists="true">
+            <column name="created_at" type="datetime"/>
+            <column name="full_name" type="varchar(200)"/>
+            <column name="id" type="java.lang.Long"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+        <addAutoIncrement tableName="customers" columnName="id"/>
+        <addPrimaryKey tableName="customers" columnNames="id"/>
+    </changeSet>
+    <!--End customer table-->
+
+    <!--Items table-->
+    <changeSet id="1733294527026-1" author="arabearimanana">
+        <createTable tableName="items" ifNotExists="true">
+            <column name="id" type="java.lang.Long"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="created_at" type="datetime"/>
+            <column name="active" type="java.lang.Boolean"/>
+            <column name="designation" type="java.lang.String"/>
+            <column name="price" type="java.math.BigDecimal"/>
+        </createTable>
+        <addAutoIncrement tableName="items" columnName="id"/>
+        <addPrimaryKey tableName="items" columnNames="id"/>
+    </changeSet>
+    <!--End items table-->
+    <!--Expenses table-->
+    <changeSet id="1733294369665-1" author="arabearimanana">
+        <createTable tableName="expenses" ifNotExists="true">
+            <column name="id" type="java.lang.Long"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="created_at" type="datetime"/>
+            <column name="item_price" type="java.math.BigDecimal"/>
+            <column name="quantity" type="java.lang.Long"/>
+            <column name="item_id" type="java.lang.Long"/>
+        </createTable>
+        <addAutoIncrement tableName="expenses" columnName="id"/>
+        <addPrimaryKey tableName="expenses" columnNames="id"/>
+        <addForeignKeyConstraint baseTableName="expenses" baseColumnNames="item_id" constraintName="item_fk_constraint"
+                                 referencedTableName="items"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <!--End expenses table-->
+    <!--Orders table-->
+    <changeSet id="1733294679478-1" author="arabearimanana">
+        <createTable tableName="orders">
+            <column name="id" type="java.lang.Long"/>
+            <column name="quantity" type="java.lang.Long"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="unit_price" type="java.math.BigDecimal"/>
+            <column name="customer_id" type="java.lang.Long"/>
+        </createTable>
+        <addAutoIncrement tableName="orders" columnName="id"/>
+        <addPrimaryKey tableName="orders" columnNames="id"/>
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="customer_id" constraintName="customer_id_fk"
+                                 referencedTableName="customers"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="1733295014925-1" author="arabearimanana">
+        <createTable tableName="items_expenses">
+            <column name="item_id" type="java.lang.Long"/>
+            <column name="expenses_id" type="java.lang.Long"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="items_expenses" baseColumnNames="expenses_id"
+                                 constraintName="expenses_fk_constraint"
+                                 referencedTableName="expenses"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="items_expenses" baseColumnNames="item_id" constraintName="item_id_fk_constraint" referencedTableName="items"
+                                 referencedColumnNames="id"/>
+        <addPrimaryKey tableName="items_expenses" columnNames="item_id,expenses_id"/>
+    </changeSet>
+    
+</databaseChangeLog>

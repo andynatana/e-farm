@@ -5,8 +5,9 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="1733212446442-1" author="arabearimanana">
-        <dropColumn tableName="orders">
-            <column name="total_price"/>
-        </dropColumn>
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="orders" columnName="total_price"/>
+        </preConditions>
+        <dropColumn tableName="orders" columnName="total_price"/>
     </changeSet>
 </databaseChangeLog>
