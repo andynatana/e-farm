@@ -45,6 +45,38 @@
                 <button type="submit" class="btn btn-outline-primary w-100">AJOUTER</button>
             </div>
         </div>
+        <div class="row g-3 justify-content-center" style="padding: 2.5%">
+            <div class="card col-md-3 bg-danger" style="margin: 2.5%;">
+                <div class="card-body text-white">
+                    <h5 class="span">Total dépenses</h5>
+                    <h6 th:text="${totalExpenses}">12000 €</h6>
+                </div>
+            </div>
+        </div>
+        <div class="row g-3">
+            <table class="table table-striped">
+                <thead class="table-header">
+                <tr>
+                    <th>Id</th>
+                    <th>Designation</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Montant Total</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="expenseItem : ${expenseList}">
+                    <td th:text="${expenseItem.id()}">1</td>
+                    <td th:text="${expenseItem.designation()}">Rabetsy</td>
+                    <td th:text="${expenseItem.quantity()}">50</td>
+                    <td th:text="${expenseItem.unitPrice()}">650</td>
+                    <td th:text="${expenseItem.totalPrice()}">Livré</td>
+                    <td><a th:href="@{/expenses/{expenseId}/remove(expenseId=${expenseItem.id()})}">DELETE</a> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </form>
 
 </div>

@@ -31,8 +31,10 @@ public class ExpenseController {
 
     @GetMapping
     public String presentHome(Model model) {
+        model.addAttribute("expenseList", expenseService.fetch());
         model.addAttribute("expenseRequest", new ExpenseRequest());
         model.addAttribute("expensesItems", itemService.fetch());
+        model.addAttribute("totalExpenses", expenseService.getTotalExpense());
         return "expenses";
     }
 
@@ -47,5 +49,11 @@ public class ExpenseController {
     @ResponseBody
     public BigDecimal getItemAmount(@PathVariable Long itemId) {
         return itemService.getPrice(itemId);
+    }
+
+    @GetMapping("/{expenseId}/remove")
+    public String remove(@PathVariable Long expenseId) {
+        expenseService.remove(expenseId);
+        return "redirect:/expenses";
     }
 }

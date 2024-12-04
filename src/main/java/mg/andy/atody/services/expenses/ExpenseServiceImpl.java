@@ -2,6 +2,7 @@ package mg.andy.atody.services.expenses;
 
 import mg.andy.atody.mappers.ExpenseMapper;
 import mg.andy.atody.models.Expense;
+import mg.andy.atody.presentation.ExpenseDto;
 import mg.andy.atody.presentation.request.ExpenseRequest;
 import mg.andy.atody.repositories.ExpenseRepository;
 import mg.andy.atody.services.items.ItemService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class ExpenseServiceImpl implements ExpenseService {
@@ -35,5 +37,23 @@ public class ExpenseServiceImpl implements ExpenseService {
         }
         Expense expense = expenseMapper.toEntity(expenseRequest);
         expenseRepository.save(expense);
+    }
+
+    @Override
+    public List<ExpenseDto> fetch() {
+        return expenseRepository.findAll()
+                .stream()
+                .map(expenseMapper::toDto)
+                .toList();
+    }
+
+    @Override
+    public void remove(Long expenseId) {
+        expenseRepository.deleteById(expenseId);
+    }
+
+    @Override
+    public BigDecimal getTotalExpense() {
+        return expenseRepository.getTotalExpense();
     }
 }
