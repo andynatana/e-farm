@@ -6,7 +6,7 @@ public class ExpenseRequest {
 
     private Long itemId;
     private BigDecimal expenseAmount;
-    private BigDecimal quantity;
+    private Long quantity;
 
     public Long getItemId() {
         return itemId;
@@ -24,11 +24,11 @@ public class ExpenseRequest {
         this.expenseAmount = expenseAmount;
     }
 
-    public BigDecimal getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(BigDecimal quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 }
